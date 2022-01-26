@@ -1,0 +1,56 @@
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px; /* This value is irrelevant, only to calculate scaling later in transformations */
+}
+
+header {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+.background, .foreground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.background {
+    /*
+        translate-z makes everything smaller in the z axis,
+        so re scaling is needed to keep same size
+    */
+    transform: translateZ(-10px) scale(2);
+}
+
+.foreground {
+    transform: translateZ(-5px) scale(1.5);
+}
+
+.title {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 0 0 5px black;
+}
+
+section {
+    font-size: 2rem;
+    background-color: #323232;
+    color: white;
+    padding: 2rem;
+}
